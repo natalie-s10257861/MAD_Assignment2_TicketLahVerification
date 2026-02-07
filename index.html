@@ -12,386 +12,265 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: #00A2E8;
             min-height: 100vh;
-            padding: 20px;
+            padding: 16px;
         }
         
         .container {
-            max-width: 600px;
+            max-width: 580px;
             margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            background: #fff;
+            border-radius: 12px;
             overflow: hidden;
-            animation: slideIn 0.4s ease-out;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* header section */
+        /* header */
         .header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            padding: 24px 24px 20px 24px;
-            border-bottom: 3px solid #FFD700;
-        }
-        
-        .brand {
+            background: #00A2E8;
+            padding: 20px;
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 8px;
         }
         
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: #FFD700;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #1a1a1a;
-            font-size: 20px;
+        .logo {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+        
+        .header-text {
+            flex: 1;
         }
         
         .brand-name {
-            color: white;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
-            letter-spacing: -0.5px;
+            color: #fff;
+            line-height: 1.2;
         }
         
-        .header-subtitle {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 13px;
-            margin-left: 52px;
+        .subtitle {
+            font-size: 11px;
+            color: rgba(255,255,255,0.85);
+            text-transform: uppercase;
             letter-spacing: 0.5px;
+            margin-top: 2px;
         }
         
-        /* verification status */
-        .status-section {
-            background: linear-gradient(180deg, #4CAF50 0%, #45a049 100%);
-            padding: 32px 24px;
+        /* status */
+        .status {
+            background: #4CAF50;
+            padding: 32px 20px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
         
-        .status-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: pulse 3s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-        
-        .checkmark-wrapper {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .checkmark {
-            width: 90px;
-            height: 90px;
-            background: white;
+        .check-circle {
+            width: 72px;
+            height: 72px;
+            background: #fff;
             border-radius: 50%;
+            margin: 0 auto 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-            animation: bounceIn 0.6s ease-out 0.2s both;
         }
         
-        @keyframes bounceIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.3);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            70% {
-                transform: scale(0.9);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        .checkmark svg {
-            width: 50px;
-            height: 50px;
+        .check-circle svg {
+            width: 40px;
+            height: 40px;
             stroke: #4CAF50;
             stroke-width: 3;
             fill: none;
-            stroke-linecap: round;
-            stroke-linejoin: round;
         }
         
-        .checkmark-path {
-            stroke-dasharray: 100;
-            stroke-dashoffset: 100;
-            animation: drawCheck 0.5s ease-out 0.5s forwards;
+        .status h1 {
+            font-size: 28px;
+            color: #fff;
+            margin-bottom: 6px;
         }
         
-        @keyframes drawCheck {
-            to {
-                stroke-dashoffset: 0;
-            }
-        }
-        
-        .status-title {
-            color: white;
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            position: relative;
-            z-index: 1;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .status-subtitle {
-            color: rgba(255, 255, 255, 0.95);
-            font-size: 16px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* ticket details */
-        .details-section {
-            padding: 28px 24px;
-        }
-        
-        .section-header {
+        .status p {
             font-size: 14px;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        /* content */
+        .content {
+            padding: 20px;
+        }
+        
+        .section-title {
+            font-size: 12px;
             font-weight: 600;
             color: #666;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            border-left: 3px solid #FFD700;
+            padding-left: 10px;
         }
         
-        .section-header::before {
-            content: '';
-            width: 4px;
-            height: 16px;
-            background: #FFD700;
-            border-radius: 2px;
-        }
-        
-        .event-name {
-            font-size: 22px;
+        .event-title {
+            font-size: 19px;
             font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 20px;
+            color: #000;
+            margin-bottom: 16px;
             line-height: 1.3;
         }
         
-        .info-grid {
-            display: grid;
-            gap: 16px;
+        .info-box {
+            background: #f5f5f5;
+            padding: 14px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            border-left: 3px solid #00A2E8;
         }
         
-        .info-row {
+        .info-item {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            padding-bottom: 16px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        
-        .info-row:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
+            padding: 6px 0;
         }
         
         .info-label {
-            font-size: 14px;
+            font-size: 13px;
             color: #666;
             font-weight: 500;
-            min-width: 120px;
         }
         
         .info-value {
-            font-size: 14px;
-            color: #1a1a1a;
+            font-size: 13px;
+            color: #000;
             font-weight: 600;
             text-align: right;
-            flex: 1;
+            max-width: 60%;
             word-break: break-word;
         }
         
-        .highlight-row {
-            background: #f8f9fa;
-            padding: 16px;
-            border-radius: 12px;
-            margin: 20px 0;
+        .email {
+            color: #1976D2;
         }
         
-        .highlight-row .info-row {
+        .divider {
             border: none;
-            padding: 0;
-            margin-bottom: 12px;
+            border-top: 1px solid #e0e0e0;
+            margin: 12px 0;
         }
         
-        .highlight-row .info-row:last-child {
-            margin-bottom: 0;
-        }
-        
-        .purchaser-email {
-            color: #667eea;
-            font-weight: 700;
-        }
-        
-        .total-section {
-            background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 20px;
+        .total-row {
+            background: #FFF8E1;
+            padding: 14px;
+            border-radius: 6px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-top: 16px;
+            border: 1px solid #FFD700;
         }
         
         .total-label {
-            font-size: 16px;
-            font-weight: 700;
-            color: #1a1a1a;
+            font-size: 15px;
+            font-weight: 600;
+            color: #000;
         }
         
         .total-value {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
-            color: #ff6b00;
-        }
-        
-        /* security badge */
-        .security-section {
-            background: #f8f9fa;
-            padding: 20px 24px;
-            border-top: 1px solid #e0e0e0;
-        }
-        
-        .security-badge {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            color: #4CAF50;
-            font-weight: 600;
-            font-size: 14px;
-        }
-        
-        .security-icon {
-            width: 20px;
-            height: 20px;
-        }
-        
-        .timestamp {
-            text-align: center;
-            margin-top: 12px;
-            font-size: 12px;
-            color: #999;
+            color: #F57C00;
         }
         
         /* footer */
         .footer {
-            background: #1a1a1a;
-            padding: 24px;
+            background: #f5f5f5;
+            padding: 16px 20px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .security-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #4CAF50;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .timestamp {
+            text-align: center;
+            font-size: 11px;
+            color: #999;
+        }
+        
+        .bottom-footer {
+            background: #263238;
+            padding: 16px;
             text-align: center;
         }
         
-        .footer-text {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 12px;
-            line-height: 1.6;
+        .footer-info {
+            font-size: 11px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.4;
         }
         
         .footer-links {
-            margin-top: 12px;
+            margin-top: 10px;
             display: flex;
             justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            gap: 12px;
         }
         
-        .footer-link {
+        .footer-links a {
             color: #FFD700;
             text-decoration: none;
-            font-size: 12px;
-            transition: opacity 0.2s;
+            font-size: 11px;
         }
         
-        .footer-link:hover {
-            opacity: 0.8;
+        .copyright {
+            margin-top: 10px;
+            font-size: 10px;
+            color: rgba(255,255,255,0.5);
         }
         
-        /* responsive design */
+        /* mobile */
         @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-            
-            .container {
-                border-radius: 16px;
-            }
-            
-            .status-title {
-                font-size: 28px;
-            }
-            
-            .checkmark {
-                width: 70px;
-                height: 70px;
-            }
-            
-            .checkmark svg {
+            .logo {
                 width: 40px;
                 height: 40px;
             }
             
-            .event-name {
+            .brand-name {
                 font-size: 20px;
             }
             
-            .info-row {
+            .status h1 {
+                font-size: 24px;
+            }
+            
+            .event-title {
+                font-size: 17px;
+            }
+            
+            .info-item {
                 flex-direction: column;
-                gap: 6px;
+                gap: 2px;
             }
             
             .info-value {
                 text-align: left;
+                max-width: 100%;
             }
             
-            .total-section {
+            .total-row {
                 flex-direction: column;
-                gap: 8px;
-                text-align: center;
+                gap: 6px;
             }
         }
     </style>
@@ -400,183 +279,161 @@
     <div class="container">
         <!-- header -->
         <div class="header">
-            <div class="brand">
-                <div class="logo-icon">TL</div>
+            <img src="https://firebasestorage.googleapis.com/v0/b/mad25t02team1.firebasestorage.app/o/6129816439578364825-removebg-preview.png?alt=media&token=4c6d8395-e830-4b26-8c1e-1273998283c0" alt="TicketLah" class="logo">
+            <div class="header-text">
                 <div class="brand-name">TicketLah!</div>
-            </div>
-            <div class="header-subtitle">OFFICIAL TICKET VERIFICATION</div>
-        </div>
-
-        <!-- verification status -->
-        <div class="status-section">
-            <div class="checkmark-wrapper">
-                <div class="checkmark">
-                    <svg viewBox="0 0 52 52">
-                        <path class="checkmark-path" d="M14 27l7.5 7.5L38 18"/>
-                    </svg>
-                </div>
-                <div class="status-title">VERIFIED</div>
-                <div class="status-subtitle">This ticket is authentic and valid for entry</div>
+                <div class="subtitle">Ticket Verification</div>
             </div>
         </div>
 
-        <!-- ticket details -->
-        <div class="details-section">
-            <div class="section-header">Event Details</div>
-            <div class="event-name" id="eventName">Loading event...</div>
+        <!-- status -->
+        <div class="status">
+            <div class="check-circle">
+                <svg viewBox="0 0 52 52">
+                    <path d="M14 27l7.5 7.5L38 18"/>
+                </svg>
+            </div>
+            <h1>VERIFIED</h1>
+            <p>This ticket is authentic and valid for entry</p>
+        </div>
 
-            <div class="highlight-row">
-                <div class="info-row">
+        <!-- content -->
+        <div class="content">
+            <div class="section-title">Event Details</div>
+            <div class="event-title" id="eventName">Loading...</div>
+
+            <div class="info-box">
+                <div class="info-item">
                     <span class="info-label">Booking ID</span>
                     <span class="info-value" id="bookingId">-</span>
                 </div>
-                <div class="info-row">
+                <div class="info-item">
                     <span class="info-label">Purchaser</span>
-                    <span class="info-value purchaser-email" id="email">-</span>
+                    <span class="info-value email" id="email">-</span>
                 </div>
             </div>
 
-            <div class="info-grid">
-                <div class="info-row">
-                    <span class="info-label">Artist/Performer</span>
-                    <span class="info-value" id="artist">-</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Date & Time</span>
-                    <span class="info-value" id="date">-</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Venue</span>
-                    <span class="info-value" id="venue">-</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Category</span>
-                    <span class="info-value" id="category">-</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Section</span>
-                    <span class="info-value" id="section">-</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Quantity</span>
-                    <span class="info-value" id="quantity">-</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Price per Ticket</span>
-                    <span class="info-value" id="pricePerTicket">-</span>
-                </div>
+            <div class="info-item">
+                <span class="info-label">Artist/Performer</span>
+                <span class="info-value" id="artist">-</span>
+            </div>
+            <hr class="divider">
+            
+            <div class="info-item">
+                <span class="info-label">Date & Time</span>
+                <span class="info-value" id="date">-</span>
+            </div>
+            <hr class="divider">
+            
+            <div class="info-item">
+                <span class="info-label">Venue</span>
+                <span class="info-value" id="venue">-</span>
+            </div>
+            <hr class="divider">
+            
+            <div class="info-item">
+                <span class="info-label">Category</span>
+                <span class="info-value" id="category">-</span>
+            </div>
+            <hr class="divider">
+            
+            <div class="info-item">
+                <span class="info-label">Section</span>
+                <span class="info-value" id="section">-</span>
+            </div>
+            <hr class="divider">
+            
+            <div class="info-item">
+                <span class="info-label">Quantity</span>
+                <span class="info-value" id="quantity">-</span>
+            </div>
+            <hr class="divider">
+            
+            <div class="info-item">
+                <span class="info-label">Price per Ticket</span>
+                <span class="info-value" id="pricePerTicket">-</span>
             </div>
 
-            <div class="total-section">
+            <div class="total-row">
                 <span class="total-label">Total Paid</span>
                 <span class="total-value" id="totalPrice">S$ 0.00</span>
             </div>
         </div>
 
-        <!-- security section -->
-        <div class="security-section">
-            <div class="security-badge">
-                <svg class="security-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                </svg>
-                <span>Secured by TicketLah! Verification System</span>
-            </div>
-            <div class="timestamp" id="timestamp">Verified on: <span id="verifyTime">-</span></div>
-        </div>
-
         <!-- footer -->
         <div class="footer">
-            <div class="footer-text">
-                This digital ticket has been cryptographically verified and authenticated.<br>
+            <div class="security-text">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+                <span>Secured by TicketLah!</span>
+            </div>
+            <div class="timestamp">Verified: <span id="verifyTime">-</span></div>
+        </div>
+
+        <div class="bottom-footer">
+            <div class="footer-info">
+                This digital ticket has been verified and authenticated.<br>
                 Keep this confirmation for your records.
             </div>
             <div class="footer-links">
-                <a href="#" class="footer-link">Help Center</a>
-                <a href="#" class="footer-link">Report Issue</a>
-                <a href="#" class="footer-link">Contact Support</a>
+                <a href="#">Help</a>
+                <a href="#">Report Issue</a>
+                <a href="#">Support</a>
             </div>
-            <div class="footer-text" style="margin-top: 16px; opacity: 0.5;">
-                © 2026 TicketLah!. All rights reserved.
-            </div>
+            <div class="copyright">© 2026 TicketLah!</div>
         </div>
     </div>
 
-  <script>
-    // parse url parameters with proper UTF-8 decoding
-    function getUrlParams() {
-        const params = new URLSearchParams(window.location.search);
-        return {
-            eventName: params.get('eventName') || 'Unknown Event',
-            artist: params.get('artist') || 'N/A',
-            venue: params.get('venue') || 'N/A',
-            date: params.get('date') || 'N/A',
-            category: params.get('category') || 'N/A',
-            section: params.get('section') || 'N/A',
-            quantity: params.get('quantity') || '1',
-            price: params.get('price') || '0',
-            email: params.get('email') || 'N/A',
-            bookingId: params.get('bookingId') || 'N/A',
-            token: params.get('token') || ''
-        };
-    }
-
-    // properly decode UTF-8 encoded text
-    function decodeText(text) {
-        try {
-            // URLSearchParams already handles decoding, so just return the text
-            return text;
-        } catch (e) {
-            console.error('Decode error:', e);
-            return text;
+    <script>
+        function getUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                eventName: params.get('eventName') || 'Unknown Event',
+                artist: params.get('artist') || 'N/A',
+                venue: params.get('venue') || 'N/A',
+                date: params.get('date') || 'N/A',
+                category: params.get('category') || 'N/A',
+                section: params.get('section') || 'N/A',
+                quantity: params.get('quantity') || '1',
+                price: params.get('price') || '0',
+                email: params.get('email') || 'N/A',
+                bookingId: params.get('bookingId') || 'N/A'
+            };
         }
-    }
 
-    // populate page with ticket data
-    function populateTicketData() {
-        const data = getUrlParams();
-        
-        // basic info - no need for additional decodeURIComponent since URLSearchParams handles it
-        document.getElementById('eventName').textContent = data.eventName;
-        document.getElementById('artist').textContent = data.artist;
-        document.getElementById('venue').textContent = data.venue;
-        document.getElementById('date').textContent = data.date;
-        document.getElementById('category').textContent = data.category;
-        document.getElementById('section').textContent = data.section;
-        document.getElementById('email').textContent = data.email;
-        document.getElementById('bookingId').textContent = data.bookingId;
-        
-        // quantity
-        const quantity = parseInt(data.quantity);
-        document.getElementById('quantity').textContent = 
-            `${quantity} ticket${quantity > 1 ? 's' : ''}`;
-        
-        // pricing
-        const price = parseFloat(data.price);
-        document.getElementById('pricePerTicket').textContent = `S$ ${price.toFixed(2)}`;
-        
-        const total = price * quantity;
-        document.getElementById('totalPrice').textContent = `S$ ${total.toFixed(2)}`;
-        
-        // timestamp
-        const now = new Date();
-        const options = { 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric', 
-            hour: '2-digit', 
-            minute: '2-digit',
-            hour12: true 
-        };
-        document.getElementById('verifyTime').textContent = 
-            now.toLocaleString('en-SG', options);
-        
-        // update page title
-        document.title = `Verified - ${data.eventName} | TicketLah!`;
-    }
+        function init() {
+            const data = getUrlParams();
+            
+            document.getElementById('eventName').textContent = data.eventName;
+            document.getElementById('artist').textContent = data.artist;
+            document.getElementById('venue').textContent = data.venue;
+            document.getElementById('date').textContent = data.date;
+            document.getElementById('category').textContent = data.category;
+            document.getElementById('section').textContent = data.section;
+            document.getElementById('email').textContent = data.email;
+            document.getElementById('bookingId').textContent = data.bookingId;
+            
+            const qty = parseInt(data.quantity);
+            document.getElementById('quantity').textContent = qty + ' ticket' + (qty > 1 ? 's' : '');
+            
+            const price = parseFloat(data.price);
+            document.getElementById('pricePerTicket').textContent = 'S$ ' + price.toFixed(2);
+            document.getElementById('totalPrice').textContent = 'S$ ' + (price * qty).toFixed(2);
+            
+            const now = new Date();
+            document.getElementById('verifyTime').textContent = now.toLocaleDateString('en-SG', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            
+            document.title = 'Verified - ' + data.eventName + ' | TicketLah!';
+        }
 
-    // initialize on page load
-    document.addEventListener('DOMContentLoaded', populateTicketData);
-</script>
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
 </body>
 </html>
-
