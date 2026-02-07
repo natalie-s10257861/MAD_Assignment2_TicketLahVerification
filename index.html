@@ -33,12 +33,12 @@
             padding: 20px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
         }
         
         .logo {
-            width: 48px;
-            height: 48px;
+            width: 64px;
+            height: 64px;
             object-fit: contain;
         }
         
@@ -47,7 +47,7 @@
         }
         
         .brand-name {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 700;
             color: #fff;
             line-height: 1.2;
@@ -242,8 +242,8 @@
         /* mobile */
         @media (max-width: 480px) {
             .logo {
-                width: 40px;
-                height: 40px;
+                width: 52px;
+                height: 52px;
             }
             
             .brand-name {
@@ -405,7 +405,6 @@
         function init() {
             const data = getUrlParams();
             
-            // display data directly without extra decoding
             document.getElementById('eventName').textContent = data.eventName;
             document.getElementById('artist').textContent = data.artist;
             document.getElementById('venue').textContent = data.venue;
