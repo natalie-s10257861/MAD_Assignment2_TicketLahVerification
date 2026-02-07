@@ -227,10 +227,10 @@
             gap: 12px;
         }
         
-        .footer-links a {
+        .footer-links span {
             color: #FFD700;
-            text-decoration: none;
             font-size: 11px;
+            cursor: default;
         }
         
         .copyright {
@@ -377,9 +377,9 @@
                 Keep this confirmation for your records.
             </div>
             <div class="footer-links">
-                <a href="#">Help</a>
-                <a href="#">Report Issue</a>
-                <a href="#">Support</a>
+                <span>Help</span>
+                <span>Report Issue</span>
+                <span>Support</span>
             </div>
             <div class="copyright">© 2026 TicketLah!</div>
         </div>
@@ -405,6 +405,7 @@
         function init() {
             const data = getUrlParams();
             
+            // display data directly without extra decoding
             document.getElementById('eventName').textContent = data.eventName;
             document.getElementById('artist').textContent = data.artist;
             document.getElementById('venue').textContent = data.venue;
