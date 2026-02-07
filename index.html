@@ -10,125 +10,561 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #00A2E8;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             padding: 20px;
         }
-
+        
         .container {
+            max-width: 600px;
+            margin: 0 auto;
             background: white;
-            border-radius: 16px;
+            border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 500px;
-            width: 100%;
+            overflow: hidden;
+            animation: slideIn 0.4s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* header section */
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 24px 24px 20px 24px;
+            border-bottom: 3px solid #FFD700;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: #FFD700;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #1a1a1a;
+            font-size: 20px;
+        }
+        
+        .brand-name {
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .header-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 13px;
+            margin-left: 52px;
+            letter-spacing: 0.5px;
+        }
+        
+        /* verification status */
+        .status-section {
+            background: linear-gradient(180deg, #4CAF50 0%, #45a049 100%);
+            padding: 32px 24px;
+            text-align: center;
+            position: relative;
             overflow: hidden;
         }
-
-        .header {
-            background: white;
-            color: #000000;
-            padding: 30px 20px;
-            text-align: center;
+        
+        .status-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
         }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 5px;
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
         }
-
-        .header h1 {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 5px;
+        
+        .checkmark-wrapper {
+            position: relative;
+            z-index: 1;
         }
-
-        .header p {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-
-        .verified-badge {
-            background: #4CAF50;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
+        
         .checkmark {
+            width: 90px;
+            height: 90px;
             background: white;
-            color: #4CAF50;
-            width: 80px;
-            height: 80px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 50px;
-            font-weight: bold;
-            margin: 0 auto 20px auto;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            animation: bounceIn 0.6s ease-out 0.2s both;
         }
-
-        .verified-text {
-            font-size: 32px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .verified-subtext {
-            font-size: 16px;
-            opacity: 0.9;
-        }
-
-        .footer {
-            background: #f8f8f8;
-            padding: 20px;
-            text-align: center;
-            color: #666;
-            font-size: 12px;
-        }
-
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 24px;
+        
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
             }
-
-            .verified-text {
+            50% {
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .checkmark svg {
+            width: 50px;
+            height: 50px;
+            stroke: #4CAF50;
+            stroke-width: 3;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        
+        .checkmark-path {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: drawCheck 0.5s ease-out 0.5s forwards;
+        }
+        
+        @keyframes drawCheck {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        .status-title {
+            color: white;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .status-subtitle {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 16px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* ticket details */
+        .details-section {
+            padding: 28px 24px;
+        }
+        
+        .section-header {
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .section-header::before {
+            content: '';
+            width: 4px;
+            height: 16px;
+            background: #FFD700;
+            border-radius: 2px;
+        }
+        
+        .event-name {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .info-grid {
+            display: grid;
+            gap: 16px;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .info-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .info-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+            min-width: 120px;
+        }
+        
+        .info-value {
+            font-size: 14px;
+            color: #1a1a1a;
+            font-weight: 600;
+            text-align: right;
+            flex: 1;
+            word-break: break-word;
+        }
+        
+        .highlight-row {
+            background: #f8f9fa;
+            padding: 16px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        
+        .highlight-row .info-row {
+            border: none;
+            padding: 0;
+            margin-bottom: 12px;
+        }
+        
+        .highlight-row .info-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .purchaser-email {
+            color: #667eea;
+            font-weight: 700;
+        }
+        
+        .total-section {
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .total-label {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        
+        .total-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ff6b00;
+        }
+        
+        /* security badge */
+        .security-section {
+            background: #f8f9fa;
+            padding: 20px 24px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .security-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: #4CAF50;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .security-icon {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .timestamp {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 12px;
+            color: #999;
+        }
+        
+        /* footer */
+        .footer {
+            background: #1a1a1a;
+            padding: 24px;
+            text-align: center;
+        }
+        
+        .footer-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            line-height: 1.6;
+        }
+        
+        .footer-links {
+            margin-top: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-link {
+            color: #FFD700;
+            text-decoration: none;
+            font-size: 12px;
+            transition: opacity 0.2s;
+        }
+        
+        .footer-link:hover {
+            opacity: 0.8;
+        }
+        
+        /* responsive design */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                border-radius: 16px;
+            }
+            
+            .status-title {
                 font-size: 28px;
             }
-
+            
             .checkmark {
-                width: 60px;
-                height: 60px;
-                font-size: 40px;
+                width: 70px;
+                height: 70px;
+            }
+            
+            .checkmark svg {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .event-name {
+                font-size: 20px;
+            }
+            
+            .info-row {
+                flex-direction: column;
+                gap: 6px;
+            }
+            
+            .info-value {
+                text-align: left;
+            }
+            
+            .total-section {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- header -->
         <div class="header">
-            <div class="logo">TicketLah!</div>
-            <h1>Ticket Verification</h1>
-            <p>Secure Entry Pass</p>
+            <div class="brand">
+                <div class="logo-icon">TL</div>
+                <div class="brand-name">TicketLah!</div>
+            </div>
+            <div class="header-subtitle">OFFICIAL TICKET VERIFICATION</div>
         </div>
 
-        <div class="verified-badge">
-            <div class="checkmark">✓</div>
-            <div class="verified-text">VERIFIED TICKET</div>
-            <div class="verified-subtext">This ticket is valid</div>
+        <!-- verification status -->
+        <div class="status-section">
+            <div class="checkmark-wrapper">
+                <div class="checkmark">
+                    <svg viewBox="0 0 52 52">
+                        <path class="checkmark-path" d="M14 27l7.5 7.5L38 18"/>
+                    </svg>
+                </div>
+                <div class="status-title">VERIFIED</div>
+                <div class="status-subtitle">This ticket is authentic and valid for entry</div>
+            </div>
         </div>
 
+        <!-- ticket details -->
+        <div class="details-section">
+            <div class="section-header">Event Details</div>
+            <div class="event-name" id="eventName">Loading event...</div>
+
+            <div class="highlight-row">
+                <div class="info-row">
+                    <span class="info-label">Booking ID</span>
+                    <span class="info-value" id="bookingId">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Purchaser</span>
+                    <span class="info-value purchaser-email" id="email">-</span>
+                </div>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-row">
+                    <span class="info-label">Artist/Performer</span>
+                    <span class="info-value" id="artist">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Date & Time</span>
+                    <span class="info-value" id="date">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Venue</span>
+                    <span class="info-value" id="venue">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Category</span>
+                    <span class="info-value" id="category">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Section</span>
+                    <span class="info-value" id="section">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Quantity</span>
+                    <span class="info-value" id="quantity">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Price per Ticket</span>
+                    <span class="info-value" id="pricePerTicket">-</span>
+                </div>
+            </div>
+
+            <div class="total-section">
+                <span class="total-label">Total Paid</span>
+                <span class="total-value" id="totalPrice">S$ 0.00</span>
+            </div>
+        </div>
+
+        <!-- security section -->
+        <div class="security-section">
+            <div class="security-badge">
+                <svg class="security-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+                <span>Secured by TicketLah! Verification System</span>
+            </div>
+            <div class="timestamp" id="timestamp">Verified on: <span id="verifyTime">-</span></div>
+        </div>
+
+        <!-- footer -->
         <div class="footer">
-            <p>This ticket has been verified for authenticity</p>
-            <p style="margin-top: 5px; opacity: 0.7;">© 2026 TicketLah!. All rights reserved.</p>
+            <div class="footer-text">
+                This digital ticket has been cryptographically verified and authenticated.<br>
+                Keep this confirmation for your records.
+            </div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Help Center</a>
+                <a href="#" class="footer-link">Report Issue</a>
+                <a href="#" class="footer-link">Contact Support</a>
+            </div>
+            <div class="footer-text" style="margin-top: 16px; opacity: 0.5;">
+                © 2026 TicketLah!. All rights reserved.
+            </div>
         </div>
     </div>
+
+    <script>
+        // parse url parameters
+        function getUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                eventName: params.get('eventName') || 'Unknown Event',
+                artist: params.get('artist') || 'N/A',
+                venue: params.get('venue') || 'N/A',
+                date: params.get('date') || 'N/A',
+                category: params.get('category') || 'N/A',
+                section: params.get('section') || 'N/A',
+                quantity: params.get('quantity') || '1',
+                price: params.get('price') || '0',
+                email: params.get('email') || 'N/A',
+                bookingId: params.get('bookingId') || 'N/A',
+                token: params.get('token') || ''
+            };
+        }
+
+        // populate page with ticket data
+        function populateTicketData() {
+            const data = getUrlParams();
+            
+            // basic info
+            document.getElementById('eventName').textContent = decodeURIComponent(data.eventName);
+            document.getElementById('artist').textContent = decodeURIComponent(data.artist);
+            document.getElementById('venue').textContent = decodeURIComponent(data.venue);
+            document.getElementById('date').textContent = decodeURIComponent(data.date);
+            document.getElementById('category').textContent = data.category;
+            document.getElementById('section').textContent = data.section;
+            document.getElementById('email').textContent = data.email;
+            document.getElementById('bookingId').textContent = data.bookingId;
+            
+            // quantity
+            const quantity = parseInt(data.quantity);
+            document.getElementById('quantity').textContent = 
+                `${quantity} ticket${quantity > 1 ? 's' : ''}`;
+            
+            // pricing
+            const price = parseFloat(data.price);
+            document.getElementById('pricePerTicket').textContent = `S$ ${price.toFixed(2)}`;
+            
+            const total = price * quantity;
+            document.getElementById('totalPrice').textContent = `S$ ${total.toFixed(2)}`;
+            
+            // timestamp
+            const now = new Date();
+            const options = { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit',
+                hour12: true 
+            };
+            document.getElementById('verifyTime').textContent = 
+                now.toLocaleString('en-SG', options);
+            
+            // update page title
+            document.title = `Verified - ${decodeURIComponent(data.eventName)} | TicketLah!`;
+        }
+
+        // initialize on page load
+        document.addEventListener('DOMContentLoaded', populateTicketData);
+    </script>
 </body>
 </html>
