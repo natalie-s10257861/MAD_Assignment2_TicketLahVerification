@@ -501,70 +501,82 @@
         </div>
     </div>
 
-    <script>
-        // parse url parameters
-        function getUrlParams() {
-            const params = new URLSearchParams(window.location.search);
-            return {
-                eventName: params.get('eventName') || 'Unknown Event',
-                artist: params.get('artist') || 'N/A',
-                venue: params.get('venue') || 'N/A',
-                date: params.get('date') || 'N/A',
-                category: params.get('category') || 'N/A',
-                section: params.get('section') || 'N/A',
-                quantity: params.get('quantity') || '1',
-                price: params.get('price') || '0',
-                email: params.get('email') || 'N/A',
-                bookingId: params.get('bookingId') || 'N/A',
-                token: params.get('token') || ''
-            };
-        }
+  <script>
+    // parse url parameters with proper UTF-8 decoding
+    function getUrlParams() {
+        const params = new URLSearchParams(window.location.search);
+        return {
+            eventName: params.get('eventName') || 'Unknown Event',
+            artist: params.get('artist') || 'N/A',
+            venue: params.get('venue') || 'N/A',
+            date: params.get('date') || 'N/A',
+            category: params.get('category') || 'N/A',
+            section: params.get('section') || 'N/A',
+            quantity: params.get('quantity') || '1',
+            price: params.get('price') || '0',
+            email: params.get('email') || 'N/A',
+            bookingId: params.get('bookingId') || 'N/A',
+            token: params.get('token') || ''
+        };
+    }
 
-        // populate page with ticket data
-        function populateTicketData() {
-            const data = getUrlParams();
-            
-            // basic info
-            document.getElementById('eventName').textContent = decodeURIComponent(data.eventName);
-            document.getElementById('artist').textContent = decodeURIComponent(data.artist);
-            document.getElementById('venue').textContent = decodeURIComponent(data.venue);
-            document.getElementById('date').textContent = decodeURIComponent(data.date);
-            document.getElementById('category').textContent = data.category;
-            document.getElementById('section').textContent = data.section;
-            document.getElementById('email').textContent = data.email;
-            document.getElementById('bookingId').textContent = data.bookingId;
-            
-            // quantity
-            const quantity = parseInt(data.quantity);
-            document.getElementById('quantity').textContent = 
-                `${quantity} ticket${quantity > 1 ? 's' : ''}`;
-            
-            // pricing
-            const price = parseFloat(data.price);
-            document.getElementById('pricePerTicket').textContent = `S$ ${price.toFixed(2)}`;
-            
-            const total = price * quantity;
-            document.getElementById('totalPrice').textContent = `S$ ${total.toFixed(2)}`;
-            
-            // timestamp
-            const now = new Date();
-            const options = { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric', 
-                hour: '2-digit', 
-                minute: '2-digit',
-                hour12: true 
-            };
-            document.getElementById('verifyTime').textContent = 
-                now.toLocaleString('en-SG', options);
-            
-            // update page title
-            document.title = `Verified - ${decodeURIComponent(data.eventName)} | TicketLah!`;
+    // properly decode UTF-8 encoded text
+    function decodeText(text) {
+        try {
+            // URLSearchParams already handles decoding, so just return the text
+            return text;
+        } catch (e) {
+            console.error('Decode error:', e);
+            return text;
         }
+    }
 
-        // initialize on page load
-        document.addEventListener('DOMContentLoaded', populateTicketData);
-    </script>
+    // populate page with ticket data
+    function populateTicketData() {
+        const data = getUrlParams();
+        
+        // basic info - no need for additional decodeURIComponent since URLSearchParams handles it
+        document.getElementById('eventName').textContent = data.eventName;
+        document.getElementById('artist').textContent = data.artist;
+        document.getElementById('venue').textContent = data.venue;
+        document.getElementById('date').textContent = data.date;
+        document.getElementById('category').textContent = data.category;
+        document.getElementById('section').textContent = data.section;
+        document.getElementById('email').textContent = data.email;
+        document.getElementById('bookingId').textContent = data.bookingId;
+        
+        // quantity
+        const quantity = parseInt(data.quantity);
+        document.getElementById('quantity').textContent = 
+            `${quantity} ticket${quantity > 1 ? 's' : ''}`;
+        
+        // pricing
+        const price = parseFloat(data.price);
+        document.getElementById('pricePerTicket').textContent = `S$ ${price.toFixed(2)}`;
+        
+        const total = price * quantity;
+        document.getElementById('totalPrice').textContent = `S$ ${total.toFixed(2)}`;
+        
+        // timestamp
+        const now = new Date();
+        const options = { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric', 
+            hour: '2-digit', 
+            minute: '2-digit',
+            hour12: true 
+        };
+        document.getElementById('verifyTime').textContent = 
+            now.toLocaleString('en-SG', options);
+        
+        // update page title
+        document.title = `Verified - ${data.eventName} | TicketLah!`;
+    }
+
+    // initialize on page load
+    document.addEventListener('DOMContentLoaded', populateTicketData);
+</script>
 </body>
 </html>
+
